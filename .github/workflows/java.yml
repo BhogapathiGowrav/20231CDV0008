@@ -1,4 +1,4 @@
-name: Java CI
+name: Java CI - EvenOddCheck
 
 on:
   push:
@@ -8,12 +8,11 @@ on:
 
 jobs:
   build:
-    name: Build and Run Java
+    name: Compile and Run Java Program
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup JDK 17
@@ -22,8 +21,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Compile Java
-        run: javac *.java
+      - name: Compile Java File
+        run: javac EvenOddCheck.java
 
-      - name: Run Java program
-        run: java Add
+      - name: Run Java Program
+        run: echo "4" | java EvenOddCheck
